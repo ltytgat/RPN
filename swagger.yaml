@@ -1,0 +1,67 @@
+swagger: '2.0'
+info:
+  title: Calculatrice RPN
+  description: API de la calculatrice RPN
+  version: '1.0'
+host: localhost:5000
+basePath: /
+schemes:
+  - http
+paths:
+  /stack:
+    get:
+      summary: Récupérer la pile
+      responses:
+        200:
+          description: OK
+    post:
+      summary: Ajouter un élément dans la pile
+      parameters:
+        - in: body
+          name: body
+          required: true
+          schema:
+            type: object
+            properties:
+              element:
+                type: number
+      responses:
+        200:
+          description: OK
+    delete:
+      summary: Nettoyer la pile
+      responses:
+        200:
+          description: OK
+  /add:
+    put:
+      summary: Effectuer l'opération d'addition
+      responses:
+        200:
+          description: OK
+        400:
+          description: Not enough numbers in the stack
+  /subtract:
+    put:
+      summary: Effectuer l'opération de soustraction
+      responses:
+        200:
+          description: OK
+        400:
+          description: Not enough numbers in the stack
+  /multiply:
+    put:
+      summary: Effectuer l'opération de multiplication
+      responses:
+        200:
+          description: OK
+        400:
+          description: Not enough numbers in the stack
+  /divide:
+    put:
+      summary: Effectuer l'opération de division
+      responses:
+        200:
+          description: OK
+        400:
+          description: Not enough numbers in the stack, Division by zero
